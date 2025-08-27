@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Задача 1
+    1) В html создать кнопку button
+    2) После загрузки страницы вывести в консоль текст "Страница загрузилась"
+    3) Добавить событие onclick которое выводит в консоль текст "Событие onclick"
+    4) Добавить событие addEventListener которое выводит в консоль текст "Событие addEventListener" -->
+
+    <button class="button">Кнопка</button>
+    <script>
+        const buttonEl = document.querySelector('.button');
+        const bodyEl = document.querySelector('body'); 
+    // 2.
+        bodyEl.onload = function () { // Простой способ
+            console.log('Страница загрузилась');
+        }
+
+        window.addEventListener("load", function (event) { // Продвинутый способ (Прогрузка всех данных, до тога как они прогрузились есть возможность добавлять ПреЛоад "Крутящиеся значти итд")
+            console.log("Все загрузилось");
+        })
+    // 3.
+        buttonEl.onclick = function () { // Старый вариан (если уже есть один onclick и мы добавим второй, то Первый видно не будет (2ой перекроет 1ый))
+            console.log("Событие onclick");
+        }
+        buttonEl.onclick = function () { // Старый вариан (если уже есть один onclick и мы добавим второй, то Первый видно не будет (2ой перекроет 1ый))
+            console.log("Событие onclick 2");
+        }
+
+        // addEventListener поможет этого избежать
+        buttonEl.addEventListener('click', function (e) {
+            console.log('Событие Клик addEventListener');
+        })
+
+        buttonEl.addEventListener('click', function (e) {
+            console.log('Событие Клик addEventListener 2');
+        })
+
+    </script>
+</body>
+</html>
