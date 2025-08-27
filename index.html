@@ -6,46 +6,41 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Задача 3
-    1) Создать кнопку, которая добавляет h1 с текстом "Новый заголовок",
-    данный элемент нужно расположить после кнопки.
-    2) Создать вторую кнопку, которая будет удалять созданный заголовок h1
-    3) Создать третью кнопку, при Наведении на которую в консоль будет выводиться текст "вы навели на данную кнопку",
-    как только курсор уводится с кнопки, в консоли должен появиться текст "Наведения больше нет" -->
+    <!-- Задача 4
+    1) Создать html список из 3ех элементов li
+    2) Сделать кнопку которая будет добавлять элементы списка с текстом "Новый элемент списка"
+    3) Создать кнопку, которая будет удалять первый элемент из созданного списка
+    4) Создать кнопку, при клике на которую ей добавляется класс "click" -->
 
-    <div class="content">
-        <button class="button1">Добавить h1</button>
-        <button class="button2">Удалить h1</button>
-        <button class="button3">Hover</button>
-    </div>
-    
+    <ul class="ul">
+        <li class="list">"Элемент списка 1</li>
+        <li class="list">"Элемент списка 2</li>
+        <li class="list">"Элемент списка 3</li>
+    </ul>
+
+    <button class="buttonAdd">add item</button>
+    <button class="buttonRemove">remove item</button>
     
     <script>
     // 1.
-        const button1El = document.querySelector('.button1');
-        const button2El = document.querySelector('.button2');
-        const button3El = document.querySelector('.button3');
+        const ulEl = document.querySelector('.ul');
+        const buttonAddEl = document.querySelector('.buttonAdd');
+        const buttonRemoveEl = document.querySelector('.buttonRemove');
 
-        const h1El = document.createElement('h1');
-        h1El.textContent = 'Новый заголовок';
+        const listEl = document.createElement('li');
+        listEl.textContent = 'Новый элемент списка';
 
-        button1El.addEventListener('click', function (e) {
-            button1El.parentElement.appendChild(h1El);
+        buttonAddEl.addEventListener('click', function (e) {
+            const listEl = document.createElement('li');
+            listEl.textContent = 'Новый элемент списка';
+            listEl.classList.add('list');
+            ulEl.appendChild(listEl);
         });
     // 2.
-        button2El.addEventListener('click', function (e) {
-            button2El.parentElement.removeChild(h1El);
+        buttonRemoveEl.addEventListener('click', function (e) {
+            const firstListEl = document.querySelector('.list:first-child');
+            ulEl.removeChild(firstListEl);
         })
-    // 3.
-        button3El.addEventListener('mouseover', function (e) {
-            console.log('Навели');
-            console.log(e.target); // в момент наведения можно работать с элементом
-        });
-
-        button3El.addEventListener('mouseout', function (e) {
-            console.log('Убрали');
-        });
-        
     </script>
 </body>
 </html>
