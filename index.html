@@ -20,6 +20,7 @@
 
     <button class="buttonAdd">add item</button>
     <button class="buttonRemove">remove item</button>
+    <button class="buttonAddClass">add class</button>
     
     <script>
     // 1.
@@ -40,6 +41,12 @@
         buttonRemoveEl.addEventListener('click', function (e) {
             const firstListEl = document.querySelector('.list:first-child');
             ulEl.removeChild(firstListEl);
+        })
+    // 3.
+        const addClass = document.querySelector('.buttonAddClass');
+        addClass.addEventListener('click', function (e) {
+            const target = e.target;
+            target.classList.add('click');
         })
     </script>
 </body>
